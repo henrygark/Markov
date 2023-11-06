@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Markov Tests",
+      "setup": "",
+      "run": "./gradlew test --tests MarkovTest",
+      "input": null,
+      "output": null,
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 7
+    }
+  ]
+}
