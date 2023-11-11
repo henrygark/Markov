@@ -45,15 +45,17 @@ public class Markov {
         if (line == null) {
             System.out.println("");
         }
+        if (line != null) {
+        line.split("//");
+        }
     }
-    public void addWord(String word)
-    {
+    public void addWord(String word) {
         System.out.println("Word not implemented");
     }
     public static boolean endsWithPunctuation(String word) {
-        System.out.println("EndsWith puncutation not implemented");
-        return false;
-    }
+       return PUNCTUATION_MARKS_.contains(word.substring(word.length() - 2));
+       }
+
     public String randomWord(String key) {
         Random wordGen = new Random();
         Object[] values = words.values().toArray();         //found from https://stackoverflow.com/questions/929554/is-there-a-way-to-get-the-value-of-a-hashmap-randomly-in-java
