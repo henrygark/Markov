@@ -73,6 +73,7 @@ public class Markov {
             }
         }
         prevWord = word;
+
     }
     public static boolean endsWithPunctuation(String word) {
        return PUNCTUATION_MARKS_.contains(word.substring(word.length() - 1));
@@ -81,7 +82,6 @@ public class Markov {
     public String randomWord(String key) {
         Random wordGen = new Random();
         ArrayList<String> initial = words.get(key);    //retrieves the object
-
         return initial.get(wordGen.nextInt(initial.size()));
     }
     @Override
@@ -90,11 +90,19 @@ public class Markov {
     }
     public String getSentence() {
         String currentWord = "";
+        StringBuilder builder = new StringBuilder();
+        boolean checker = true;
         currentWord = randomWord(BEGINS_SENTENCE_);
-        //  if (currentWord.contains(endsWithPunctuation())) {
-        // }
 
-        System.out.println("Not implemented");
-        return "";
+        while (checker) {
+            if (!endsWithPunctuation(currentWord)) {
+                builder.append(currentWord.trim()).append(" "); //found from https://www.geeksforgeeks.org/java-string-trim-method-example/
+                currentWord = randomWord(currentWord);
+            } else {
+                builder.append(currentWord.trim());
+                checker = false;
+            }
+        }
+        return builder.toString().trim();
     }
 }
