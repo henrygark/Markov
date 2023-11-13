@@ -45,8 +45,8 @@ public class Markov {
             String[] myWords = line.split(" ");   // found from https://www.javatpoint.com/substring
 
             for (int i = 0; i < myWords.length; i++) {
-                if (myWords[i].length() != 0) {
-                    addWord(myWords[i]);      //retrieves string and adds the value from the words array.
+                if (myWords[i].trim().length() != 0) {
+                    addWord(myWords[i].trim());      //retrieves string and adds the value from the words array.
                                              //words[i] retrieves the value from the words array.
                 }
             }
@@ -103,6 +103,6 @@ public class Markov {
                 checker = false;
             }
         }
-        return builder.toString().trim();
+        return builder.toString();
     }
 }
