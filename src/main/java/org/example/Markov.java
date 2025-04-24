@@ -68,7 +68,7 @@ public class Markov {
             array.add(word);
 
             words.put(BEGINS_SENTENCE_, array);
-        } else if (!endsWithPunctuation(prevWord)){
+        } else if (!endsWithPunctuation(prevWord)) {
             if (!words.containsKey(prevWord)) {
                 ArrayList<String> array = new ArrayList<>();   //we are at the end of the sentence.
                 array.add(word);                              //We add a word to the array that belongs to BEGINS_SENTENCE_
@@ -94,9 +94,8 @@ public class Markov {
         ArrayList<String> initial = words.get(key);    //retrieves the object
         if (initial != null && !initial.isEmpty()) {
             return initial.get(wordGen.nextInt(initial.size()));
-        } else {
-            return "";
         }
+        return key;
     }
     //returns the hashmap's selection from the text file and prints the
     //contents from the program's methods out by using toString().
